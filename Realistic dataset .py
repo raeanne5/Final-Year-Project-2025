@@ -37,11 +37,39 @@ plt.show()
 
 # Log-transform 'Amount'
 creditcard2['Amount'] = np.log1p(creditcard2['Amount'] + 0.0001)
+# Boxplot for Amount feature
+sns.boxplot(x=creditcard2["Class"], y=creditcard2["Amount"])
+plt.title("Transaction Amount Distribution for Legitimate and Fraudulent Transactions")
+plt.ylabel("Log-Amount")  # Hide y-axis label
+plt.show()
 
 # Heatmap analysis
 plt.figure(figsize=(10,8))
 sns.heatmap(creditcard2.corr(), cmap="coolwarm", linewidths=0.5)
 plt.title("Feature Correlation Heatmap")
+plt.show()
+
+# Convert Time from seconds to hours (easier to interpret)
+creditcard2['Hour'] = creditcard2['Time'] / 3600  # 3600 seconds in 1 hour
+
+# Plot the diagram one above the other
+plt.figure(figsize=(12, 10))
+
+# Legitimate Transactions time distribution
+plt.subplot(2, 1, 1)
+sns.histplot(creditcard2[creditcard2["Class"] == 0]["Hour"], bins=50, color="blue", kde=True) # hours
+plt.title("Legitimate Transactions Over Time")
+plt.xlabel("Time (hours)")
+plt.ylabel("Count")
+
+# Fraudulent Transactions time distribution
+plt.subplot(2, 1, 2)
+sns.histplot(creditcard2[creditcard2["Class"] == 1]["Hour"], bins=50, color="red", kde=True) # hours
+plt.title("Fraudulent Transactions Over Time")
+plt.xlabel("Time (hours)")
+plt.ylabel("Count")
+
+plt.tight_layout()
 plt.show()
 
 # Drop 'Time' variable
