@@ -66,6 +66,7 @@ lr_model.fit(X_train, y_train)
 
 y_pred = lr_model.predict(X_test)
 
+# Model Evaluation
 print("Logistic Regression (Without SMOTE)")
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
@@ -92,6 +93,7 @@ lr_model_smote.fit(X_train_resampled, y_train_resampled)
 
 y_pred_smote = lr_model_smote.predict(X_test)
 
+# Model Evaluation
 print("\nLogistic Regression (With SMOTE)")
 print("Accuracy:", accuracy_score(y_test, y_pred_smote))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_smote))
@@ -100,6 +102,7 @@ print("\nClassification Report:\n", classification_report(y_test, y_pred_smote, 
 # ========================
 # DECISION TREE
 # ========================
+# Choosing best parameter
 dt_param_grid = {
     'criterion': ['gini', 'entropy'],
     'max_depth': [3, 5, 10, 20],
@@ -114,8 +117,9 @@ grid_search_dt.fit(X_train_resampled, y_train_resampled)
 best_dt = grid_search_dt.best_estimator_
 y_pred_dt = best_dt.predict(X_test)
 
+# Model Evaluation
 print("\nDecision Tree")
-print("Best Parameters:", grid_search_dt.best_params_)
+print("Best Parameters:", grid_search_dt.best_params_) # Display the chosen parameters
 print("Accuracy:", accuracy_score(y_test, y_pred_dt))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_dt))
 print("\nClassification Report:\n", classification_report(y_test, y_pred_dt, digits=4))
@@ -123,6 +127,8 @@ print("\nClassification Report:\n", classification_report(y_test, y_pred_dt, dig
 # ========================
 # RANDOM FOREST
 # ========================
+
+# Choosing the best parameter
 rf_param_grid = {
     'n_estimators': [100, 200],
     'max_depth': [10, 20],
@@ -138,8 +144,9 @@ grid_search_rf.fit(X_train_resampled, y_train_resampled)
 best_rf = grid_search_rf.best_estimator_
 y_pred_rf = best_rf.predict(X_test)
 
+# Model Evaluation
 print("\nRandom Forest")
-print("Best Parameters:", grid_search_rf.best_params_)
+print("Best Parameters:", grid_search_rf.best_params_) # Display the chosen parameters
 print("Accuracy:", accuracy_score(y_test, y_pred_rf))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_rf))
 print("\nClassification Report:\n", classification_report(y_test, y_pred_rf, digits=4))
