@@ -1,5 +1,5 @@
 # Final-Year-Project-2025
-This is Raeanne Ng Wei Xin's Final Year Project code on Machine Learning Approaches for Credit Card Fraud Detection.
+This is Raeanne Ng Wei Xin's Final Year Project code.
 
 This repository contains the files and models used for my undergraduate final year project on Predictive Analysis for Detecting Credit Card Fraud.
 
