@@ -11,12 +11,12 @@ An ideal dataset where the number of fraudulent and legitimate transactions are 
 2. Realistic Dataset (Imbalanced):
 A more realistic dataset reflecting real-world scenario where there is actual class imbalance in credit card transactions, as fraudulent cases represent a very small fraction of the total transactions. This dataset is used to explore and compare:
 
-Logistic Regression (without SMOTE)
+- Logistic Regression (without SMOTE)
 
-Logistic Regression (with SMOTE)
+- Logistic Regression (with SMOTE)
 
-Decision Tree
+- Decision Tree
 
-Random Forest
+- Random Forest
 
 Each model is evaluated based on classification metrics such as Accuracy, Confusion Matrix, Precision, Recall, and F1-Score.
