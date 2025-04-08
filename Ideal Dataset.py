@@ -14,7 +14,7 @@ creditcard.isnull().values.any() #check if there is any missing values
 
 # Piechart of Class Distribution
 count_classes = creditcard['Class'].value_counts()
-count_classes.plot(kind='pie', autopct='%1.1f%%', labels=['Legitimate (0)', 'Fraudulent (1)'], colors=["skyblue", "red"])
+count_classes.plot(kind='pie', autopct='%1.1f%%', labels=['Legitimate (0)', 'Fraudulent (1)'], colors=["skyblue", "red"], startangle= 180, textprops={'ha': 'center'})
 plt.ylabel('')  #to hide y-axis
 plt.title("Transaction Class Distribution")
 plt.show()
