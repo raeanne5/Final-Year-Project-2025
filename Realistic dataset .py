@@ -25,7 +25,7 @@ creditcard2_class_distribution = pd.Series(class_counts)
 
 plt.figure(figsize=(6,6))
 creditcard2_class_distribution.plot(kind='pie', autopct='%1.2f%%', labels=creditcard2_class_distribution.index, 
-                           colors=["skyblue", "red"], startangle=90, explode=[0, 0.1])
+                           colors=["skyblue", "red"], startangle=90, explode=[0, 0.1], textprops={'ha': 'center'})
 plt.ylabel('')
 plt.title("Transaction Class Distribution")
 plt.show()
